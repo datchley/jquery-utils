@@ -15,10 +15,8 @@ currently two main extensions:
 + DOM Utilities for manipulation
 
 ## Class-like Properties
-This extension allows you to treat custom element attributes in much the same 
-way you would the special class attribute using jQuery methods.  These let you 
-treat an attribute's value as a collection of names/strings, just like the 'class'
-attribute. 
+This extension lets you treat an attribute's value as a collection of names/strings, 
+just like the 'class' attribute. 
 
 For example, given a custom attribute called `test-prop`, you can do the following:
 
@@ -46,3 +44,12 @@ For example, given a custom attribute called `test-prop`, you can do the followi
 
 </script>
 ```
+
+## DOM Utilities
+Some useful extensions for manipulating and managing the DOM.
+
+This extension provides:
+    + $.moveTo() - for moving elements to another element
+    + $.isElement() - to check if objects are HTMLElements or DOMNodes
+    + `DOMChanged` event - triggered when using jQuery DOM manipulation methods
+
