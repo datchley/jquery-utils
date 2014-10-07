@@ -1,3 +1,8 @@
+/* global require, define */
+
+// DOM Utils
+// Some DOM utilities to extend jQuery for common tasks
+
 !function (factory) {
     if (typeof exports == 'object') {
         factory(require('jquery'));
@@ -8,21 +13,6 @@
     }
 }(function($) {
     'use strict';
-  
-   /**
-    * isDOM - Check if an object is a DOM Node/Element
-    * @param obj {mixed} - the object to check
-    * @return {boolean} - true if obj is a DOM Element
-    */
-    function isDOM(obj) {
-        try {
-            return obj instanceof HTMLElement;
-        } catch(e) {
-            return (typeof obj === "object") &&
-                (obj['nodeType'] && obj.nodeType === 1) && 
-                (obj['style'] && typeof obj.style === "object");
-        }
-    }
     
    /**
     * after - AOP method to fire a function after an existing
@@ -34,13 +24,13 @@
     function after(method, fn) {
         var _orig = $.fn[method];
         if (fn && _orig) {
-              $.fn[method] = function() {
+            $.fn[method] = function() {
                 var args = [].slice.call(arguments),
                     results;
                 results = _orig.apply(this, args);
                 fn.apply(this, args);
                 return results;
-              };
+            };
         }
     }
   
@@ -65,7 +55,7 @@
         'html', 
         'remove', 
         'empty'
-    ]
+    ];
   
     // Wrap each original jQuery method to call our fireDOMChanged() 
     // method after executing, passing the original method name
@@ -76,6 +66,21 @@
     });
   
     $.fn.extend({
+       /**
+        * isElement - Check if an object is a DOM Node/Element
+        * @param obj {mixed} - the object to check
+        * @return {boolean} - true if obj is a DOM Element
+        */
+        isElement: function(obj) {
+            try {
+                return obj instanceof HTMLElement;
+            } catch(e) {
+                return (typeof obj === "object") &&
+                    (obj['nodeType'] && obj.nodeType === 1) && 
+                    (obj['style'] && typeof obj.style === "object");
+            }
+        },
+
        /**
         * moveTo - move the element to another element, it's positioning
         * determined by the location passed in, either 'before', 'inside' 
@@ -91,15 +96,15 @@
             }
         
             var mmap = {
-                  'before': 'insertBefore',
-                  'after': 'insertAfter',
-                  'inside': 'appendTo'
+                    'before': 'insertBefore',
+                    'after': 'insertAfter',
+                    'inside': 'appendTo'
                 },
                 method = mmap[location],
                 target = el.jquery ? el : $(el),
                 source = this.detach();
         
-            return (wrap && (wrap.jquery || isDOM(wrap) || typeof wrap === 'string')) 
+            return (wrap && (wrap.jquery || $.isElement(wrap) || typeof wrap === 'string')) 
                 ? source[method](target).wrapAll(wrap)
                 : source[method](target);
         }
