@@ -105,11 +105,15 @@ For example:
 
 + **$.moveTo(container, location [, wrapper])**
  
-  Move the element to the given _container_, which can be an HTML Element, query 
-  selector string or jQuery object. The _location_ determines where in relation
-  to the _container_ the element is moved, one of `inside`, `after` or `before`.
-  If an optional _wrapper_ is passed, it should be an HTML Element, jQuery object
-  or HTML string to use as a wrapping around the element once it has been moved.
+  Move every element in the set of matched elements in relation to the target
+  _container_, based on the passed _location_ and optionally wrapped by _wrapper_.
+  - **container** `{Selector|HTML|Element|jQuery}` the target element in or around
+    which the elements will be moved.
+  - **location** `{string}` - one of `inside`, to move the elements inside the target
+    as the first child, `after` to move them directly after the target,  or `before` 
+    to move them directly before the target container.
+  - **wrapper** `{Selector|HTML|Element|jQuery}` - optional wrapper element to wrap
+    all the match elements after they are moved.
 
 + **DOMChanged** Event
 

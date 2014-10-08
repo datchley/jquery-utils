@@ -65,7 +65,7 @@
         });
     });
   
-    $.fn.extend({
+    $.extend({
        /**
         * isElement - Check if an object is a DOM Node/Element
         * @param obj {mixed} - the object to check
@@ -79,32 +79,32 @@
                     (obj['nodeType'] && obj.nodeType === 1) && 
                     (obj['style'] && typeof obj.style === "object");
             }
-        },
+        }
+    });
+
+    $.fn.extend({
 
        /**
         * moveTo - move the element to another element, it's positioning
         * determined by the location passed in, either 'before', 'inside' 
         * or 'after'.
-        * @param el {jQuery|selector} - the target element to move to
+        * @param el {Selector|jQuery|HTML|Element} - the target element to move to
         * @param location {string} - one of inside, before or after
-        * @param [wrap=undefined] {HTML|Element|jQuery} - optionally wrap the moved elements 
+        * @param [wrap=undefined] {Selector|HTML|Element|jQuery} - optionally wrap the moved elements 
         * @return {jQuery} the original context
         */
         moveTo: function(el, location, wrap) {
-            if (!el && !location) {
-                throw Error('missing argument to $.moveTo');
-            }
-        
             var mmap = {
                     'before': 'insertBefore',
                     'after': 'insertAfter',
                     'inside': 'appendTo'
                 },
                 method = mmap[location],
-                target = el.jquery ? el : $(el),
+                target = el,
                 source = this.detach();
         
-            return (wrap && (wrap.jquery || $.isElement(wrap) || typeof wrap === 'string')) 
+            // console.log(">> typeof wrap = ", (typeof wrap));
+            return (wrap && (wrap.jquery || jQuery.isElement(wrap) || typeof wrap === 'string')) 
                 ? source[method](target).wrapAll(wrap)
                 : source[method](target);
         }
