@@ -69,7 +69,7 @@ For example, given a custom attribute called `test-prop`, you can do the followi
 
   Add or remove one or more names from the value of the _property_name_ custom property for each 
   element in the set of matched elements, depending on either the name's presence or the value of the flag argument.
-  - **property_name* * `{string}` - is the string name of the custom property or attribute
+  - **property_name** `{string}` - is the string name of the custom property or attribute
   - **value** `{string}` - is a string of space separated names to add or remove
   - **flag** `{boolean}` - a boolean value determining whether the names in _value_ are added (_true_)
     or removed (_false).
