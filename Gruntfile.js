@@ -2,6 +2,16 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        jshint: {
+            allFiles: [
+                'Gruntfile.js',
+                'src/**/*.js',
+                'test/**/*.spec.js'
+            ],
+            options: {
+                jshintrc: '.jshintrc'
+            }
+        },
         concat: {
             options: {
                 separator: ';'
@@ -39,7 +49,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    grunt.registerTask('test', ['jasmine']);
-    grunt.registerTask('default', ['jasmine', 'concat', 'uglify']);
+    grunt.registerTask('test', ['jshint', 'jasmine']);
+    grunt.registerTask('default', ['jshint', 'jasmine', 'concat', 'uglify']);
 };

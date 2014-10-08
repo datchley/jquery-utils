@@ -107,9 +107,9 @@
                 source = this.detach();
         
             // console.log(">> typeof wrap = ", (typeof wrap));
-            return (wrap && (wrap.jquery || jQuery.isElement(wrap) || typeof wrap === 'string')) 
-                ? source[method](target).wrapAll(wrap)
-                : source[method](target);
+            return (wrap && (wrap.jquery || jQuery.isElement(wrap) || typeof wrap === 'string'))  ?
+                source[method](target).wrapAll(wrap) :
+                source[method](target);
         }
     });
 });
