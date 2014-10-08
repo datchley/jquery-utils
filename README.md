@@ -1,4 +1,4 @@
-# jQuery Utils
+# jQuery Utils  [![Build Status](https://travis-ci.org/datchley/jquery-utils.svg?branch=master)](https://travis-ci.org/datchley/jquery-utils)
 
 This is a collection of jQuery extensions that provide for a number of
 actions that I repeat often in jQuery based apps; or have been useful
