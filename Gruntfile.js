@@ -56,15 +56,15 @@ module.exports = function(grunt) {
         'saucelabs-jasmine': {
             all: {
                 options: {
-                    username: process.env.SAUCE_USERNAME,
+                    // username: process.env.SAUCE_USERNAME,
                     tunneltimeout: 5,
-                    key: process.env.SAUCE_ACCESS_KEY, 
+                    // key: process.env.SAUCE_ACCESS_KEY, 
                     urls: [ 'http://127.0.0.1:9999/_SpecRunner.html' ],
                     build: process.env.TRAVIS_JOB_ID || '<%= pkg.version %>',
                     concurrency: 3,
                     testname: 'Sauce Unit Tests for Jquery Utils',
                     tags: ['master'],
-                    browser: [
+                    browsers: [
                         { browserName: 'firefox', version: '32', platform: 'OS X 10.6' },
                         { browserName: 'chrome', version: '37', platform: 'OS X 10.6' },
                         { browserName: 'firefox', version: '32', platform: 'Windows 7' },
