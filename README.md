@@ -1,4 +1,6 @@
-# jQuery Utils  [![Build Status](https://travis-ci.org/datchley/jquery-utils.svg?branch=master)](https://travis-ci.org/datchley/jquery-utils)
+# jQuery Utils  
+[![Build Status](https://travis-ci.org/datchley/jquery-utils.svg?branch=master)](https://travis-ci.org/datchley/jquery-utils)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/datchley.svg)](https://saucelabs.com/u/datchley)
 
 This is a collection of jQuery extensions that provide for a number of
 actions that I repeat often in jQuery based apps; or have been useful
