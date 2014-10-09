@@ -1,6 +1,8 @@
-/* global describe, expect, it, beforeEach, loadFixtures */
+/* global jasmine, describe, expect, it, beforeEach, loadFixtures */
 describe("Class-like Properties", function() {
     var $elm;
+
+    jasmine.getEnv().addReporter(new jasmine.JSReporter2());
 
     beforeEach(function() {
         // Reset the element used for testing

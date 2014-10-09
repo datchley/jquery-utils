@@ -2,6 +2,8 @@
 describe("DOM Utility Extension", function() {
     var $moveable, $container;
 
+    jasmine.getEnv().addReporter(new jasmine.JSReporter2());
+
     // set fixture path
     jasmine.getFixtures().fixturesPath = 'test/fixtures';
 
