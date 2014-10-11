@@ -84,6 +84,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-saucelabs');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
+    grunt.registerTask('local-test', ['jshint','jasmine']);
     grunt.registerTask('test', ['jshint', 'jasmine', 'connect', 'saucelabs-jasmine']);
     grunt.registerTask('default', ['jshint', 'jasmine', 'concat', 'uglify']);
 };

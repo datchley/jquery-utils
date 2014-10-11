@@ -54,9 +54,7 @@
     };
     
     // Assign global functions
-    return {
-        'escapeRegExp': escapeRegExp,
-        'escapeHtml': escapeHtml
-    };
+    this.escapeRegExp = escapeRegExp;
+    this.escapeHtml = escapeHtml;
  
 }));
