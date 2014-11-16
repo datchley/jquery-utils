@@ -18,6 +18,7 @@ currently two main extensions:
 
 + Class-like Properties extension
 + DOM Utilities for manipulation
++ String utility methods
 
 ## Class-like Properties
 This extension lets you treat an attribute's value as a collection of names/strings, 
@@ -133,4 +134,29 @@ For example:
   methods that remove or place an element.  The type of method is passed in a data
   object as a parameter, ie., `{ 'method': 'append' }`.
   
+## String methods
+This provies a handful of useful string manipulation methods, both as jQuery methods and as extensions to the native String object.
 
+For example,
+
+```javascript
+
+var html="<p>a string with special chars</p>";
+    escaped = html.escapeHtml();
+
+// escaped = "&lt;p&gt;a string with special chars&lt;&#x2F;p&gt;"
+
+var input = "$" + 4.56,
+    escaped_input = input.escapeRegExp();
+
+// escaped_input = "\$4\.56"
+
+```
+
++ **$.escapeHtml(_string_)** or **_string_.escapeHtml()**
+    
+    Converts html special characters into their respective html entities or escape sequence so they can be output correctly for viewing.
+
++ **$.escapeRegExp(_string_)** or **_string_.escapeRegExp()**
+
+    Will escape any regular expression meta characters in a string so that it can be used to build a RegExp object and properly match those meta characters.
