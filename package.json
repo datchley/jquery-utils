@@ -1,6 +1,6 @@
 {
   "name": "jquery-utils",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "jQuery Utilities",
   "main": "main.js",
   "scripts": {
